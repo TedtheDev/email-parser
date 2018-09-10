@@ -3,10 +3,9 @@ import styled from 'styled-components';
 
 const HeaderDiv = styled.div`
     text-align: center;
-    color: white;
+    color: ${props => props.theme.secondaryColor};
     font-size: 2rem;
     grid-area: ${props => props.gridArea || 'header'};
-    background: red;
 `;
 
 const Header = props => {

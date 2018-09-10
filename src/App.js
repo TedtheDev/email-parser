@@ -3,13 +3,15 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 import Header from './components/header/header';
-import FileUpload from './components/FileUpload';
+import FileUpload from './components/fileUpload/FileUpload';
 import TableList from './components/table/TableList'
 
 const AppDiv = styled.div`
+  background: ${props => props.theme.primaryColor};
   height: 100%;
   width: 100%;
   display: grid;
+  color: ${props => props.theme.secondaryColor}
   grid-template: 10% 1fr 10% / 10% 1fr 10%;
   grid-template-areas:
     "header header header"
