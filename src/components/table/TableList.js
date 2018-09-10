@@ -9,19 +9,27 @@ const TableListUl = styled.ul`
     list-style: none;
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    padding: .5rem;
+    border: 10px solid ${props => props.theme.secondaryColor};
+    background: ${props => props.theme.secondaryColor};
+    border-radius: 5px;
 `;
 
 const TableListLi = styled.li`
     display: grid;
-    grid-template: 1fr / repeat(5, 25%);
+    grid-template: 1fr / repeat(4, 25%);
     justify-items: center;
     align-items: center;
+    padding: 0 .5rem;
+    border: 5px solid ${props => props.theme.primaryColor};
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background-color: ${props => props.theme.primaryColor};
 `;
 
 const HeaderDiv = styled.div`
-    background-color: red;
     color: white;
+    font-size: 1.3rem;
     width: 100%;
     height: 100%;
     text-align: center;
@@ -54,6 +62,7 @@ const TableList = props => {
                         if(field !== 'messageId') {
                             return <HeaderDiv key={`header-${field}`}>{capitalizeFirstLetter(field)}</HeaderDiv>
                         }
+                        return null;
                     })
                 }
             </TableListLi>
@@ -65,7 +74,7 @@ const TableList = props => {
 }
 
 TableList.propTypes = {
-    headerFields: PropTypes.arrayOf(PropTypes.string)
+    data: PropTypes.array
 }
 
 export default TableList;

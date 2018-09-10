@@ -11,7 +11,7 @@ const AppDiv = styled.div`
   height: 100%;
   width: 100%;
   display: grid;
-  color: ${props => props.theme.secondaryColor}
+  color: ${props => props.theme.secondaryColor};
   grid-template: 10% 1fr 10% / 10% 1fr 10%;
   grid-template-areas:
     "header header header"

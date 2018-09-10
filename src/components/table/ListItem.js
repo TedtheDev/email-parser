@@ -6,6 +6,12 @@ const ListItemLi = styled.li`
     grid-template: 1fr / repeat(auto-fit,minmax(25%, 1fr));
     justify-items: center;
     align-items: center;
+    padding: 0 .5rem;
+    border: 1px solid black;
+    &:last-child {
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
 `;
 
 const ListItemDiv = styled.div`

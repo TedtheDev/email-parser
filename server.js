@@ -9,7 +9,7 @@ var multer  = require('multer')
 var upload = multer({})
 
 
-const PORT = process.env.prot || 8080;
+const PORT = process.env.port || 8080;
 
 app.use(express.static(path.join(__dirname, 'build')));
 

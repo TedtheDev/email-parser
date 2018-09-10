@@ -7,7 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 const theme = {
     primaryColor: 'rgb(255, 150, 150)',
-    secondaryColor: 'rgb(255,255,255)'
+    secondaryColor: 'rgb(239, 239, 239)'
 }
 ReactDOM.render(
     <ThemeProvider theme={theme}>
