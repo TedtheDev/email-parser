@@ -1,3 +1,22 @@
+# Email Parser
+
+Not your everyday simple email parser! This email parser takes MSG files (Outlook) and parses email data into a table format. You can upload one or multiple files at a time!
+
+## How to run this project locally
+1. Clone this repo ```git clone https://github.com/TedtheDev/email-parser.git```
+2. Install dependencies with ```npm install```
+3. Development: Run the webpack-dev-server with Node.js ```npm run start:dev``` and then run the server by using nodemon ```npx nodemon server.js```. In the package.json, the proxy is set so the server and webpack-dev-server will communicate together.
+4. Production: Run by using ```npm run start``` OR Run with Docker with ```docker-compose up```
+
+## Project details
+
+This project uses Node.js, Nodemailer's SimpleParser, Multer, React, Styled-Components, and Axios. This web server serves the compiled React UI and also has one API to parse raw email data. The API takes in one or more raw email data files and returns the parsed results with certain fields (To, From, Date, Subject, MessageId) back to the UI to show in a table layout. 
+
+
+
+
+# Create-React-App README
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
