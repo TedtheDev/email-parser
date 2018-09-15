@@ -21,7 +21,7 @@ app.get('/', function (req, res) {
 
 app.post('/api/upload/mail', upload.array('files'), (req,res) => {   
     const promises = [];
-
+    
     req.files.forEach(file => {
         promises.push(simpleParser(file.buffer));
     });
@@ -29,13 +29,58 @@ app.post('/api/upload/mail', upload.array('files'), (req,res) => {
     Promise.all(promises)
         .then(results => {
             const emailResults = results.map(result => {
-                const parsedResults = {
-                    to: `'${result.to.value[0].name}' <${result.to.value[0].address}>`,
-                    from: `'${result.from.value[0].name}' <${result.from.value[0].address}>`,
-                    date: result.date,
-                    subject: result.subject,
-                    messageId: result.messageId
-                };
+                let parsedResults = {
+                    messageId: '',
+                    to: '',
+                    from: '',
+                    date: '',
+                    subject: ''
+                }
+
+                if(result.messageId) {
+                    parsedResults.messageId = result.messageId;
+                }
+
+                if(result.to) {
+                    let name = '';
+                    let address = '';
+                    if(result.to.value && result.to.value.length > 0) {
+                        if(result.to.value[0]) {
+                            if(result.to.value[0].name) {
+                                name = result.to.value[0].name;
+                            }
+                            if(result.to.value[0].address) {
+                                address = result.to.value[0].address
+                            }
+                        }
+                    }
+                        
+                    parsedResults.to = `'${name}' <${address}>`;
+                }
+
+                if(result.from) {
+                    let name = '';
+                    let address = '';
+                    if(result.from.value && result.from.value.length > 0) {
+                        if(result.from.value[0]) {
+                            if(result.from.value[0].name) {
+                                name = result.from.value[0].name;
+                            }
+                            if(result.from.value[0].address) {
+                                address = result.from.value[0].address
+                            }
+                        }
+                    }
+                    parsedResults.from = `'${name}' <${address}>`;
+                }
+
+                if(result.date) {
+                    parsedResults.date = result.date;
+                }
+
+                if(result.subject) {
+                    parsedResults.subject = result.subject;
+                }
 
                 return parsedResults;
             });
