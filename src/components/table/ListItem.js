@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const ListItemLi = styled.li`
     display: grid;
-    grid-template: 1fr / repeat(auto-fit,minmax(25%, 1fr));
+    grid-template: 1fr / repeat(auto-fit,minmax(20%, 1fr));
     justify-items: center;
     align-items: center;
     padding: 0 .5rem;
@@ -28,6 +28,9 @@ const ListItemDiv = styled.div`
 const ListItem = props => {
     return (
         <ListItemLi>
+            <ListItemDiv>
+                {props.data.messageId}
+            </ListItemDiv>
             <ListItemDiv>
                 {props.data.to}
             </ListItemDiv>

@@ -17,7 +17,7 @@ const TableListUl = styled.ul`
 
 const TableListLi = styled.li`
     display: grid;
-    grid-template: 1fr / repeat(4, 25%);
+    grid-template: 1fr / repeat(5, 20%);
     justify-items: center;
     align-items: center;
     padding: 0 .5rem;
@@ -59,10 +59,10 @@ const TableList = props => {
             <TableListLi>
                 {
                     Object.keys(props.data[0]).map(field => {
-                        if(field !== 'messageId') {
+                        //if(field !== 'messageId') {
                             return <HeaderDiv key={`header-${field}`}>{capitalizeFirstLetter(field)}</HeaderDiv>
-                        }
-                        return null;
+                        //}
+                        //return null;
                     })
                 }
             </TableListLi>
